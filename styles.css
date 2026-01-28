@@ -1,0 +1,119 @@
+@font-face{
+  font-family: "Overseer";
+  src: url("./fonts/overseer.ttf") format("truetype");
+}
+
+:root{
+  --bg:#0b1a14;
+  --panel:#102820;
+  --border:#1f4d3a;
+  --text:#c9f7df;
+  --muted:#7fbfa2;
+  --accent:#3cff9e;
+}
+
+body{ margin:0; background:var(--bg); color:var(--text); font-family: Arial, Helvetica, sans-serif; }
+
+#topbar{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:10px 16px; background:#08130f; border-bottom:1px solid var(--border);
+}
+
+.title{ font-family:"Overseer", monospace; font-size:22px; display:flex; gap:10px; align-items:baseline; }
+.buildtag{ font-size:12px; color:var(--muted); border:1px solid var(--border); padding:2px 6px; }
+
+#tabs{ display:flex; gap:6px; }
+
+.tab{
+  background:transparent; border:1px solid var(--border); color:var(--text);
+  padding:6px 12px; cursor:pointer; font-family:"Overseer", monospace;
+}
+.tab.active{ background:var(--panel); border-color:var(--accent); color:var(--accent); }
+
+#app{ padding:16px; }
+
+.panel{ display:none; background:var(--panel); border:1px solid var(--border); padding:16px; min-height:70vh; }
+.panel.active{ display:block; }
+
+h1{ font-family:"Overseer", monospace; margin-top:0; }
+
+.muted{ color:var(--muted); }
+.tiny{ font-size:12px; }
+
+/* BUILD subtabs */
+.subtabs{ display:flex; gap:6px; margin-bottom:12px; }
+.subtab{
+  background:transparent; border:1px solid var(--border); color:var(--text);
+  padding:6px 10px; cursor:pointer; font-family:"Overseer", monospace;
+}
+.subtab.active{ background:#08130f; border-color:var(--accent); color:var(--accent); }
+.subpanel{ display:none; }
+.subpanel.active{ display:block; }
+
+/* Form */
+.form-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; max-width:650px; }
+label{ display:flex; flex-direction:column; gap:4px; }
+label.full{ grid-column:1 / -1; }
+input, textarea{ background:#08130f; border:1px solid var(--border); color:var(--text); padding:8px; }
+input:focus, textarea:focus{ outline:none; border-color:var(--accent); }
+
+/* Boxes */
+.box{ padding:10px; border:1px solid var(--border); background:#08130f; }
+
+/* Race UI */
+.race-layout{ display:grid; grid-template-columns: 260px 1fr; gap:12px; }
+.race-list{ display:flex; flex-direction:column; gap:8px; }
+.race-card{
+  text-align:left; background:#08130f; border:1px solid var(--border); color:var(--text);
+  padding:10px; cursor:pointer;
+}
+.race-card.active{ border-color:var(--accent); }
+.race-card-name{ font-family:"Overseer", monospace; letter-spacing:0.5px; margin-bottom:4px; }
+.race-card-stats{ color:var(--muted); font-size:12px; }
+
+.race-detail{ display:flex; flex-direction:column; gap:10px; }
+.race-summary{
+  padding:10px; border:1px solid var(--border); background:#08130f;
+  display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+}
+.race-stats{ display:flex; gap:14px; color:var(--muted); }
+
+.trait{ padding:8px 0; border-bottom:1px solid rgba(31,77,58,0.5); }
+.trait:last-child{ border-bottom:none; }
+
+.subset-list{ margin-top:8px; display:flex; flex-wrap:wrap; gap:8px; }
+.subset-card{
+  background:transparent; border:1px solid var(--border); color:var(--text);
+  padding:8px 10px; cursor:pointer; font-family:"Overseer", monospace;
+}
+.subset-card.active{ border-color:var(--accent); color:var(--accent); }
+.subset-name{ font-size:14px; }
+
+/* Sheet */
+.sheet-block{ margin-bottom:16px; padding:10px; border:1px solid var(--border); background:#08130f; }
+pre{ white-space:pre-wrap; color:var(--muted); margin:8px 0 0 0; }
+
+/* Mobile */
+@media (max-width: 820px){
+  .race-layout{ grid-template-columns: 1fr; }
+  .race-list{ flex-direction:row; overflow:auto; }
+  .race-card{ min-width:180px; }
+}
+
+
+/* SPECIAL TAB */
+#special-stats {
+  margin-top: 12px;
+}
+
+.special-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.special-row button {
+  width: 28px;
+  height: 28px;
+}
